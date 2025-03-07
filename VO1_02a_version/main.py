@@ -2,7 +2,7 @@ import micropython
 import utime
 from utime import sleep
 import os
-
+import senko
 from machine import SPI, Pin, WDT
 import network
 import ntptime
@@ -192,7 +192,7 @@ if filename in file_list:
       lines = lines.replace(' ', '')
       # 移除字串中的雙引號和空格，然後使用逗號分隔字串
       file_list = [file.strip('"') for file in lines.split(',')]
-      import senko
+      #import senko
       # Senko初始化 執行ota 
       OTA = senko.Senko(
           user="hsilan-sui",  # Required
