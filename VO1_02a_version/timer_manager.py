@@ -93,7 +93,7 @@ class TimerManager:
             self.lcd_mgr.draw_text(0, 1 * 16, text='IN:--------', fg=self.lcd_mgr.color.WHITE, bg=self.lcd_mgr.color.BLACK, bgmode=-1)
             self.lcd_mgr.draw_text(0, 2 * 16, text='OUT:--------')
             self.lcd_mgr.draw_text(0, 3 * 16, text='EP:--------')
-            self.lcd_mgr.draw_text(0, 4 * 16, text='GP:--------')
+            self.lcd_mgr.draw_text(0, 4 * 16, text='FP:--------')
             self.lcd_mgr.draw_text(0, 5 * 16, text='ST:--')
             self.lcd_mgr.draw_text(0, 6 * 16, text='Time:mm/dd hh:mm')
             self.lcd_mgr.draw_text(0, 7 * 16, text='Wifi:-----')
