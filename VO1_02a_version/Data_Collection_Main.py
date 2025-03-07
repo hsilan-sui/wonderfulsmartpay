@@ -1,4 +1,4 @@
-VERSION = "VO1_01a_debug"
+VERSION = "VO1_02a_debug"
 import micropython
 print("Debugger:[Data_Collection_Main] 首行，記憶體:")
 micropython.mem_info()
