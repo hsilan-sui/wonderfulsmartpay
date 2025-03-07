@@ -194,14 +194,13 @@ if filename in file_list:
       file_list = [file.strip('"') for file in lines.split(',')]
 
       # Senko初始化 執行ota 
-      OTA = senko_.Senko(
+      OTA = senko.Senko(
           user="hsilan-sui",  # Required
-          repo="happycollector",  # Required
-          branch="Sui_Branch",  # Optional: Defaults to "master"
-          working_dir="smartypay/VO1_01a_debug",  # Optional: Defaults to "app"
-          # "happyboard/20230524V1"
+          repo="wonderfulsmartpay",  # Required
+          branch="main",  # Optional: Defaults to "master"
+          working_dir="VO1_02a_version",  
           files=file_list
-        ) 
+        )
     #   OTA = senko.Senko(
     #       user="pc0808f",  # Required
     #       repo="happycollector",  # Required
