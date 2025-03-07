@@ -132,7 +132,7 @@ class KindFEILOLIcmd:
     Send_Machine_reboot = 215
     Send_Machine_shutdown = 216
     Send_Payment_countdown_Or_fail = 231
-    #     Send_Starting_games = 220
+    Send_Starting_games = 220
     Send_Starting_once_game = 221
     Ask_Transaction_account = 321 # 查詢:遠端帳目
     Ask_Coin_account = 322 # 查詢:投幣帳目

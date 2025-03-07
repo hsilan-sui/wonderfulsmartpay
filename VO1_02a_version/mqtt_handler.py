@@ -119,31 +119,31 @@ class MqttHandler:
 
             #組好訊息
             game_data = {"epays": epays, "freeplays": freeplays}
-            print(f"debug: handle_clawstartgame : {game_data}")
+            print(f"[mqtt_handler(handle_clawstartgame)]:  {game_data}")
 
             #發佈訊息
             self.publish_MQTT_claw_data("commandack-clawstartgame",data.get("state"))
-            print(f"debug:[mqtt_handler] handle_clawstartgame -> publish_MQTT commandack-clawstartgame")
+            print(f"[mqtt_handler(handle_clawstartgame)] -> publish_MQTT commandack-clawstartgame")
             #發送uart封包 啟動遊戲指令
             # self.uart_func(KindFEILOLIcmd.Send_Starting_once_game, game_data)
             # 暫時先用函式
             #self.uart_FEILOLI_send_packet(KindFEILOLIcmd.Send_Starting_once_game, game_data)
             # 用類
-            print(f"debug:[mqtt_handler] handle_clawstartgame 中 self.uart_manager 狀態: {self.uart_manager}")
+            print(f"[mqtt_handler(handle_clawstartgame)] self.uart_manager 狀態: {self.uart_manager}")
             
             # **這裡加強錯誤檢查**
             if not hasattr(self.uart_manager, 'KindFEILOLIcmd'):
-                raise AttributeError("debug:[mqtt_handler] self.uart_manager 缺少 KindFEILOLIcmd 屬性")
+                raise AttributeError("[mqtt_handler(handle_clawstartgame)] self.uart_manager 缺少 KindFEILOLIcmd 屬性")
 
-            self.uart_manager.send_packet(self.uart_manager.KindFEILOLIcmd.Send_Starting_once_game, game_data)
-            print(f"debug:[mqtt_handler] 發送uart封包給娃娃機了:clawstartgame")
+            self.uart_manager.send_packet(self.uart_manager.KindFEILOLIcmd.Send_Starting_games, game_data)
+            print(f"[mqtt_handler(handle_clawstartgame)] 發送uart 封包給娃娃機Starting_games")
        
         except AttributeError as ae:
-            print(f"debug:[mqtt_handler] 屬性錯誤: {ae}")
+            print(f"[mqtt_handler(handle_clawstartgame)] 屬性錯誤: {ae}")
         except ValueError as ve:
-            print(f"debug:[mqtt_handler] 數值錯誤: {ve}")
+            print(f"[mqtt_handler(handle_clawstartgame)] 數值錯誤: {ve}")
         except Exception as e:
-            print(f"debug:[mqtt_handler] 錯誤處理 Error handling clawstartgame: {e}")
+            print(f"[mqtt_handler(handle_clawstartgame)] 錯誤處理 Error handling clawstartgame: {e}")
     
     def handle_clawreboot(self,data):
         self.publish_MQTT_claw_data("commandack-clawreboot", data.get("state"))
