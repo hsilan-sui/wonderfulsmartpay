@@ -181,7 +181,7 @@ if filename in file_list:
     print(gc.mem_free())
     # 在這邊要做讀取OTA列表，然後進行OTA的執行
     print("[main]: OTA檔案存在")
-    import smartypay.VO1_01a_debug.senko_ as senko_
+    
     lcd_mgr.draw_text(0 , 16 * 3, text="OTAing...")
     lcd_mgr.show()
     #debug test
@@ -192,7 +192,7 @@ if filename in file_list:
       lines = lines.replace(' ', '')
       # 移除字串中的雙引號和空格，然後使用逗號分隔字串
       file_list = [file.strip('"') for file in lines.split(',')]
-
+      import senko
       # Senko初始化 執行ota 
       OTA = senko.Senko(
           user="hsilan-sui",  # Required
